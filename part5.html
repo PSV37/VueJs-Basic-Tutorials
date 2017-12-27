@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vuejs Parts</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+ <div id="app">
+   <div class="container">
+   	    <div class="row">
+	   	   <div class="well">
+	   	   	<h2 class="text-center text-success"><b>Computed Properties In VueJs</b></h2>
+	   	   	   <h3 class="text-center">Hello  <span class="text-info"><u>{{fullname}}</u></span></h3><br>
+	   	   	   <span>First Name :  <b>{{first}}</b></span><br>
+	   	   	   <span>Last Name :  <b>{{last}}</b></span>
+	   	   </div>
+	   	   <div class="col-md-6">
+	   	   	   <div class="form-group">
+	   	   	   	<label>First Name : </label>
+	   	   	   	    <input type="text" v-model="first" class="form-control" placeholder="Name">
+	   	   	   </div>
+	   	   </div>
+	   	   <div class="col-md-6">
+	   	   	   <div class="form-group">
+	   	   	   	  <label>Last Name : </label>
+	   	   	   	  <input type="text" v-model="last" class="form-control" placeholder="Last">
+	   	   	   </div>
+	   	   </div>
+        </div>
+   </div>
+ </div>
+
+ <script type="text/javascript">
+ 	new Vue({
+ 		el : '#app',
+ 		data : {
+ 			first :'',
+ 		    last : ''
+ 		},
+ 		
+ 		computed : {
+ 			fullname:function(){
+ 				return this.first + '  ' + this.last
+ 			}
+ 			
+ 		}
+
+ 	})
+ </script>
+</body>
+</html>

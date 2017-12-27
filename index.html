@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vuejs</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div id="app">
+   	<div class="text-center">
+   		 <h2 >{{Title}}</h2>
+   	 {{msg}}
+   	</div>
+<div class="row">
+	 <my-directive></my-directive>
+	<div class="col-md-4 col-sm-offset-2">	
+	    <h3>Add Or Substract Value </h3>	
+		    <button v-on:click="add(1)">Add by 1 Value</button>
+		    <button v-on:click="sub(1)">Miuns by 1 Value</button><br><br>
+		    <button v-on:dblclick="add(10)">add by 10 Value</button><br><br>
+		    <button v-on:dblclick="sub(10)">Miuns by 10 Value</button><br><br>
+		     <span><b>See Events <span style="color: red">{{value}}</span></b></span>
+	</div>
+	<div class="col-md-6">
+		<div @click="seen=!seen">
+			<h3 class="text-info" style="cursor: pointer;"> {{event}}</h3>
+		</div>
+		<div v-if="seen">
+			 <h4>{{display}}</h4>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+	Vue.component('my-directive',{
+		render(mydata){
+	             return mydata('h2',{'class':'text-danger text-center'},this.message )
+	           },
+         data(){
+         	return {
+         		message:'Click Here To Show Some Vue Events',         	}
+         }  
+	});
+	new Vue({
+		el : '#app',
+		data:{
+			Title:'Vue Js Event',
+            msg : 'hello world',
+            value: 5,
+            event:'Hide Show Event',
+            seen : false,
+            display : 'Hey Hello you can see me Hurry!...',
+		},
+		methods:{
+			add:function(inc){
+				this.value += inc;
+			},
+			sub:function(dec){
+				this.value -=dec;
+			}
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vuejs Parts</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div id="app">
+   	<div class="text-center">
+   
+   	</div>
+	<div class="row">
+      <div class="well">
+      	 <h2 class="text-center">{{Title}}</h2>
+       </div>
+      	   <div class="col-md-4 col-md-offset-3">
+		      <input type="text" v-model="name">
+	       </div>
+	        <div class="col-md-4 ">
+		      <input type="text" v-model="name">
+	       </div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	new Vue({
+		el : '#app',
+		data:{
+			Title:'Two Way-Data Binding',
+       
+		}
+	})
+</script>
+</body>
+</html>

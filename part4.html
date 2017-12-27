@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vuejs Parts</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+ <div id="app">
+  <div class="container">
+  	 	<div class="well">
+  	 		<h2 class="text-center text-success"><b>Email Replace Using EventHandler</b></h2>
+		 	<div class="col-md-offset-3">
+		 		<h3>{{level}} :  <b><a v-bind:href="URL" class="text-success">{{CleanURL}}</a></b></h3>
+		 	</div>	
+		 </div>
+	 	<div class="col-md-6 col-md-offset-3">
+	 		Enter Email : <input type="text" class="form-control" v-model="URL"><br>
+	 		<button  class="btn btn-primary" v-on:click="HumanrizeURL">HumanrizeURL</button>
+	 	</div>
+  </div>
+</div>
+
+
+<!-- VueJs Script code -->
+ <script type="text/javascript">
+ 	new Vue({
+ 		el : '#app',
+ 		data : {
+ 			URL :'',
+ 			CleanURL :'',
+ 		},
+ 		methods : {
+ 			HumanrizeURL:function(){
+ 				this.CleanURL = this.URL.replace(/^https?:\/\//,'').replace(/\/$/,'')
+ 			}
+ 		},
+
+ 		computed :{
+ 			level:function(){
+			  if(this.CleanURL=='')
+ 			  {
+ 			 	return "Your Email Here"
+ 			  }
+ 			  else
+ 			  {
+ 			  	return "New Email"
+ 			  }
+ 			}
+ 		}
+
+ 	})
+ </script>
+</body>
+</html>
